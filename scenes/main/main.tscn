@@ -2,6 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cavk7c11hl3nf" path="res://scenes/player/Player.tscn" id="1_hyk8p"]
 
+[sub_resource type="Curve2D" id="Curve2D_hyk8p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, 0, 0, 0, 0, 0, 480, 712, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
 [node name="Main" type="Node" unique_id=955801537]
 
 [node name="Player" parent="." unique_id=1041140325 instance=ExtResource("1_hyk8p")]
@@ -17,3 +23,8 @@ wait_time = 2.0
 
 [node name="StartPosition" type="Marker2D" parent="." unique_id=1409807924]
 position = Vector2(240, 450)
+
+[node name="MobPath" type="Path2D" parent="." unique_id=1634486833]
+curve = SubResource("Curve2D_hyk8p")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" unique_id=2049373043]
