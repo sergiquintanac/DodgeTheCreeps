@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://covlmhj8ryeg6" path="res://scenes/main/main.gd" id="1_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://cbbcwghc3r536" path="res://scenes/mob/mob.tscn" id="2_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://cibsli15ufsef" path="res://scenes/HUD/hud.tscn" id="4_l3cfh"]
+[ext_resource type="AudioStream" uid="uid://cudm80xfulrb7" path="res://art/House In a Forest Loop.ogg" id="5_ow5a4"]
+[ext_resource type="AudioStream" uid="uid://hw0l6t0me6wf" path="res://art/gameover.wav" id="6_hujxm"]
 
 [sub_resource type="Curve2D" id="Curve2D_hyk8p"]
 _data = {
@@ -35,6 +37,12 @@ curve = SubResource("Curve2D_hyk8p")
 [node name="Player" parent="." unique_id=1041140325 instance=ExtResource("1_hyk8p")]
 
 [node name="HUD" parent="." unique_id=801609401 instance=ExtResource("4_l3cfh")]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=595981225]
+stream = ExtResource("5_ow5a4")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=93482447]
+stream = ExtResource("6_hujxm")
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
