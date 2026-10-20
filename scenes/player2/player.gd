@@ -1,0 +1,53 @@
+extends Area2D
+
+signal hit2
+
+@export var speed = 400
+var screen_size
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	hide()
+	screen_size = get_viewport_rect().size
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	var velocity = Vector2.ZERO
+	if Input.is_action_pressed("move_right_2"):
+		velocity.x += 1
+	if Input.is_action_pressed("move_left_2"):
+		velocity.x -= 1
+	if Input.is_action_pressed("move_up_2"):
+		velocity.y -= 1
+	if Input.is_action_pressed("move_down_2"):
+		velocity.y += 1
+	
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+		if velocity.x != 0:
+			$AnimatedSprite2D.animation = "walk"
+			$AnimatedSprite2D.flip_v = false
+			$AnimatedSprite2D.flip_h = velocity.x < 0
+		elif velocity.y != 0:
+			$AnimatedSprite2D.animation = "up"
+			$AnimatedSprite2D.flip_v = velocity.y > 0
+
+	else:
+		$AnimatedSprite2D.stop()
+	
+	
+	position += velocity * delta
+	position.x = clamp(position.x, 0, screen_size.x)
+	position.y = clamp(position.y, 0, screen_size.y)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	hide() # El jugador desapareix després de ser impactat.
+	emit_signal("hit2")
+	# S'ha d'ajornar, ja que no podem canviar les propietats físiques en una crida de retorn de física.
+	$CollisionShape2D.set_deferred("disabled", true)
+
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false

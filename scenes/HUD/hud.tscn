@@ -16,10 +16,23 @@ script = ExtResource("1_glunx")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -22.5
-offset_top = 30.0
-offset_right = 22.5
-offset_bottom = 108.0
+offset_left = -160.0
+offset_top = 24.0
+offset_right = -115.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_jjobl")
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="ScoreLabel2" type="Label" parent="." unique_id=1754448317]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 120.0
+offset_top = 24.0
+offset_right = 165.0
+offset_bottom = 102.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_jjobl")
 theme_override_font_sizes/font_size = 64
