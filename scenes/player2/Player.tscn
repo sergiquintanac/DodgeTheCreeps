@@ -1,27 +1,19 @@
 [gd_scene format=3 uid="uid://b0pcsamga8b60"]
 
 [ext_resource type="Script" uid="uid://3ibweqrr7whu" path="res://scenes/player2/player.gd" id="1_htiet"]
-[ext_resource type="Texture2D" uid="uid://jtydo0gqjrmu" path="res://art/playerGrey_up1.png" id="2_dy6lc"]
-[ext_resource type="Shader" uid="uid://d2xb3uf75h7n5" path="res://art/shaders/Player.tres" id="2_i1ehe"]
-[ext_resource type="Texture2D" uid="uid://dg2184v5ejc3m" path="res://art/playerGrey_up2.png" id="3_gnoxd"]
-[ext_resource type="Texture2D" uid="uid://qblv3tlcax6s" path="res://art/playerGrey_walk1.png" id="4_nftx8"]
-[ext_resource type="Texture2D" uid="uid://7cqgpsj5ejhe" path="res://art/playerGrey_walk2.png" id="5_6epm0"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4mu36"]
-shader = ExtResource("2_i1ehe")
-shader_parameter/Enabled = false
-shader_parameter/ColorFinal = Color(0.769979, 0.39984924, 0.29151416, 1)
-shader_parameter/ColorInicial = Color(0.580392, 0.498039, 0.486275, 1)
-shader_parameter/Threshhold = 0.0
+[ext_resource type="Texture2D" uid="uid://bcah4tina4n7l" path="res://art/playerRed_up1.png" id="2_4mu36"]
+[ext_resource type="Texture2D" uid="uid://xm4vbcjglaul" path="res://art/playerRed_up2.png" id="3_i1ehe"]
+[ext_resource type="Texture2D" uid="uid://bh5ejy7qq3je2" path="res://art/playerRed_walk1.png" id="4_12smn"]
+[ext_resource type="Texture2D" uid="uid://bbgw5veaf4a21" path="res://art/playerRed_walk2.png" id="5_nnlan"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wddc5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_dy6lc")
+"texture": ExtResource("2_4mu36")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_gnoxd")
+"texture": ExtResource("3_i1ehe")
 }],
 "loop": 1,
 "name": &"up",
@@ -29,10 +21,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_nftx8")
+"texture": ExtResource("4_12smn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_6epm0")
+"texture": ExtResource("5_nnlan")
 }],
 "loop": 1,
 "name": &"walk",
@@ -47,7 +39,6 @@ height = 70.0
 script = ExtResource("1_htiet")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1975284393]
-material = SubResource("ShaderMaterial_4mu36")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_wddc5")
 animation = &"walk"
