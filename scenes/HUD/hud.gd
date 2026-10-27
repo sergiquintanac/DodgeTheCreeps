@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal start_game
+signal start_game_local
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +25,11 @@ func show_game_over(text):
 	# Feu un temporitzador one-shot i espereu que acabi.
 	await get_tree().create_timer(1).timeout
 	$StartButton.show()
+	$MultiButton.show()
+	$OnlineButton.show()
+	$SettingsButton.show()
+	$HighscoresButton.show()
+	$AboutButton.show()
 
 func update_score(score):
 	$ScoreLabel.text = str(score)
@@ -36,4 +42,18 @@ func _on_message_timer_timeout() -> void:
 
 func _on_start_button_pressed() -> void:
 	$StartButton.hide()
+	$MultiButton.hide()
+	$OnlineButton.hide()
+	$SettingsButton.hide()
+	$HighscoresButton.hide()
+	$AboutButton.hide()
 	emit_signal("start_game")
+
+func _on_multi_button_pressed() -> void:
+	$StartButton.hide()
+	$MultiButton.hide()
+	$OnlineButton.hide()
+	$SettingsButton.hide()
+	$HighscoresButton.hide()
+	$AboutButton.hide()
+	emit_signal("start_game_local")

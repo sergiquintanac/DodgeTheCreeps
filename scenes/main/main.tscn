@@ -55,4 +55,5 @@ stream = ExtResource("6_hujxm")
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="start_game_local" from="HUD" to="." method="new_game_local"]
 [connection signal="hit2" from="Player2" to="." method="_on_player_2_hit_2"]
