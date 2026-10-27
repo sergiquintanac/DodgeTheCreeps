@@ -26,10 +26,11 @@ func game_over():
 func new_game():
 	multi = false
 	score1 = 0
-	score2 = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score1)
+	$HUD/ScoreLabel.set_position(Vector2(218 , 24))
+	$HUD/ScoreLabel2.hide()
 	$HUD.show_message("Get Ready")
 	$Music.play()
 	get_tree().call_group("mobs", "queue_free")
@@ -42,6 +43,8 @@ func new_game_local() -> void:
 	score2 = 0
 	$Player.start($StartPosition.position)
 	$Player2.start($StartPosition.position)
+	$HUD/ScoreLabel.set_position(Vector2(80 , 24))
+	$HUD/ScoreLabel2.show()
 	$StartTimer.start()
 	$HUD.update_score(score1)
 	$HUD.update_score2(score2)
